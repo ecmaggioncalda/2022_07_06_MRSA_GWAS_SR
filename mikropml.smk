@@ -5,8 +5,7 @@
 rule preprocess_data:
     input:
         R="code/preproc.R",
-        csv="data/mikropml/{phenotype}/full.{genome}.csv", #I want the same full matrix going through preprocessing, only subset to specific strains from prepro_overall after this is complete
-        full="data/pheno/{phenotype}/full.tsv" #The full list of genomes to compare to when subsetting
+        csv="data/mikropml/{phenotype}/{group}.{genome}.csv"
     output:
         rds='data/mikropml/{phenotype}/{group}.{genome}.dat_proc.Rds'
     log:
