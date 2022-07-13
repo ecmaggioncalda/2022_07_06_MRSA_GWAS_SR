@@ -58,7 +58,8 @@ if(!all(sapply(paths, dir.exists))){
 unadjusted_out <- pheno %>%
   filter(grepl("MRSA", Organism_ID)) %>%
   select(genome_id,
-         all_of(phenotype_cols))
+         all_of(phenotype_cols)) %>%
+  mutate(across(all_of(phenotype_cols), ~if_else(.x == "CHG-S", "0", "1")))
   
 write_tsv(unadjusted_out,
           file = paste0("data/pheno/", phenotype_cols, "/full.tsv"))
