@@ -23,7 +23,7 @@ paths <- paste0(c("data/pheno/",
                   "log/",
                   "data/mikropml/"),
                 phenotype_cols)
-paths <- c("data/pheno", "data/mikropml", paths)
+# paths <- c("data/pheno", "data/mikropml", paths)
 
 for(i in 1:length(paths)){
   
